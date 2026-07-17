@@ -10,7 +10,6 @@ h2{font-size:16px;color:var(--g);margin:30px 0 12px;border-bottom:2px solid var(
 .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:13px}
 .card .k{font-size:12px;color:var(--muted)}.card .v{font-size:23px;font-weight:700;margin-top:3px}.card small{color:var(--muted);font-size:11px}
 .v.bad{color:var(--red)}.v.ok{color:var(--g)}.v.warn{color:var(--amber)}
-.banner{background:#fdece9;border:1px solid #f3c9c1;border-left:5px solid var(--red);border-radius:10px;padding:13px 15px;margin:16px 0;font-size:14px}
 .grid2{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:start}
 .panel{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px}
 .funnel{display:flex;flex-direction:column;gap:8px}
@@ -18,22 +17,63 @@ h2{font-size:16px;color:var(--g);margin:30px 0 12px;border-bottom:2px solid var(
 .frow b{color:var(--g);font-size:20px}.frow.drop{background:#fdece9}.frow.drop b{color:var(--red)}
 table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:8px 10px;border-bottom:1px solid #eef0ef;text-align:left}
 th{background:var(--g);color:#fff}td.n{text-align:right;font-variant-numeric:tabular-nums}
-.rec{background:#fff;border:1px solid #e5e7eb;border-left:5px solid var(--g);border-radius:10px;padding:11px 15px;margin-bottom:9px;font-size:14px}
 .foot{color:var(--muted);font-size:12px;margin-top:26px;border-top:1px solid #e5e7eb;padding-top:10px}
-@media(max-width:760px){.cards{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}</style></head><body><div class=wrap>
+.daysel{border:1px solid var(--g);color:var(--g);font-weight:600;border-radius:8px;padding:9px 12px;font-size:14px;background:#fff;min-width:190px;margin-bottom:6px}
+.dstat{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.dstat .card .v{font-size:19px}
+.note{color:var(--muted);font-size:13px;background:var(--lg);border-radius:8px;padding:10px 12px;margin-top:10px}
+@media(max-width:760px){.cards{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.dstat{grid-template-columns:repeat(2,1fr)}}</style></head><body><div class=wrap>
 <header><h1>Sài Gòn Paper × eCentric — Brand Dashboard</h1>
-<div class=sub>Chiến dịch SGP x eCentric 2026 · Dữ liệu chiến dịch 2026-07-01 → 2026-07-12 · Cập nhật 13/07/2026 19:11</div></header>
-<h2>Chỉ số chính</h2><div class=cards><div class="card"><div class="k">GMV thực tế (tháng)</div><div class="v bad">0đ</div><small>mục tiêu 69.220.370đ</small></div><div class="card"><div class="k">% đạt target</div><div class="v bad">0.0%</div><small></small></div><div class="card"><div class="k">Run-rate cần / ngày</div><div class="v ">3.146.380đ</div><small>22 ngày còn lại</small></div><div class="card"><div class="k">Đơn hàng</div><div class="v bad">0</div><small>toàn chiến dịch</small></div><div class="card"><div class="k">Creator onboard</div><div class="v ok">47</div><small>đã gắn sản phẩm</small></div><div class="card"><div class="k">Creator đã LIVE</div><div class="v warn">7</div><small>/47 onboard</small></div><div class="card"><div class="k">Buổi LIVE</div><div class="v ">34</div><small></small></div><div class="card"><div class="k">Lượt xem LIVE</div><div class="v ">24.602</div><small>20.535 lượt thích</small></div></div>
+<div class=sub>Chiến dịch SGP x eCentric 2026 · Dữ liệu chiến dịch 2026-07-01 → 2026-07-15 · Cập nhật 17/07/2026 11:41</div></header>
+<h2>Chỉ số chính</h2><div class=cards><div class="card"><div class="k">GMV thực tế (tháng)</div><div class="v bad">6.422.969đ</div><small>mục tiêu 69.220.370đ · nguồn: export 2026-07-01 → 2026-07-15</small></div><div class="card"><div class="k">% đạt target</div><div class="v bad">9.3%</div><small></small></div><div class="card"><div class="k">Run-rate cần / ngày</div><div class="v ">4.186.493đ</div><small>15 ngày còn lại</small></div><div class="card"><div class="k">Đơn hàng</div><div class="v ok">32</div><small>toàn chiến dịch</small></div><div class="card"><div class="k">Creator onboard</div><div class="v ok">462</div><small>đã gắn sản phẩm</small></div><div class="card"><div class="k">Creator đã LIVE</div><div class="v warn">14</div><small>/462 onboard</small></div><div class="card"><div class="k">Buổi LIVE</div><div class="v ">309</div><small></small></div><div class="card"><div class="k">Lượt xem LIVE</div><div class="v ">486.911</div><small>GMV LIVE 436.806đ</small></div></div>
+<h2>Data theo ngày</h2><div class=panel>
+<select id=daysel class=daysel><option value="">— Chọn ngày —</option></select>
+<div id=daypanel><div class=note>Chọn một ngày để xem chỉ số.</div></div>
+</div>
 <h2>GMV lũy kế: Kế hoạch vs Thực tế</h2><div class=panel><canvas id=ch height=110></canvas></div>
-<h2>Kích hoạt creator & Top hoạt động</h2><div class=grid2>
-<div class=panel><table><tr><th>Creator</th><th class=n>Live</th><th class=n>View</th><th class=n>Like</th><th class=n>SP thêm</th><th class=n>GMV</th></tr><tr><td>minhnhaingucoc</td><td class=n>10</td><td class=n>10.340</td><td class=n>1.760</td><td class=n>5.400</td><td class=n>0đ</td></tr><tr><td>nhabamai11</td><td class=n>10</td><td class=n>9.690</td><td class=n>11.880</td><td class=n>5.400</td><td class=n>0đ</td></tr><tr><td>motmetbayhaiii</td><td class=n>10</td><td class=n>3.350</td><td class=n>6.080</td><td class=n>5.400</td><td class=n>0đ</td></tr><tr><td>methuctaphoa</td><td class=n>1</td><td class=n>788</td><td class=n>678</td><td class=n>5.400</td><td class=n>0đ</td></tr><tr><td>boconhanh34</td><td class=n>1</td><td class=n>407</td><td class=n>61</td><td class=n>4.500</td><td class=n>0đ</td></tr><tr><td>hanjbeauty</td><td class=n>1</td><td class=n>26</td><td class=n>8</td><td class=n>450</td><td class=n>0đ</td></tr><tr><td>th92022</td><td class=n>1</td><td class=n>1</td><td class=n>68</td><td class=n>450</td><td class=n>0đ</td></tr><tr><td>trangninhnguyen</td><td class=n>0</td><td class=n>0</td><td class=n>0</td><td class=n>4.500</td><td class=n>0đ</td></tr><tr><td>taphoacincin0512</td><td class=n>0</td><td class=n>0</td><td class=n>0</td><td class=n>4.500</td><td class=n>0đ</td></tr><tr><td>www.tiktok.comphuoctho</td><td class=n>0</td><td class=n>0</td><td class=n>0</td><td class=n>4.500</td><td class=n>0đ</td></tr><tr><td>mayhelloo</td><td class=n>0</td><td class=n>0</td><td class=n>0</td><td class=n>4.500</td><td class=n>0đ</td></tr><tr><td>nakhongkhoc</td><td class=n>0</td><td class=n>0</td><td class=n>0</td><td class=n>4.500</td><td class=n>0đ</td></tr></table></div>
+<h2>Kích hoạt creator & Top GMV</h2><div class=grid2>
+<div class=panel><table><tr><th>Creator</th><th class=n>Live</th><th class=n>View</th><th class=n>SP thêm</th><th class=n>GMV</th></tr><tr><td>caoanhphuong</td><td class=n>0</td><td class=n>0</td><td class=n>2.970</td><td class=n>2.272.759đ</td></tr><tr><td>me_ryny</td><td class=n>32</td><td class=n>5.712</td><td class=n>21.010</td><td class=n>1.148.533đ</td></tr><tr><td>taphoaseden</td><td class=n>0</td><td class=n>0</td><td class=n>21.600</td><td class=n>743.670đ</td></tr><tr><td>bidaoriviuu</td><td class=n>0</td><td class=n>0</td><td class=n>3.060</td><td class=n>424.373đ</td></tr><tr><td>nguyenthuyhuong888</td><td class=n>10</td><td class=n>2.890</td><td class=n>1.800</td><td class=n>329.000đ</td></tr><tr><td>mecuarione</td><td class=n>0</td><td class=n>0</td><td class=n>2.700</td><td class=n>262.190đ</td></tr><tr><td>uynn1025</td><td class=n>0</td><td class=n>0</td><td class=n>1.350</td><td class=n>253.000đ</td></tr><tr><td>momthaoreview</td><td class=n>0</td><td class=n>0</td><td class=n>1.350</td><td class=n>236.044đ</td></tr><tr><td>lololulu2299</td><td class=n>0</td><td class=n>0</td><td class=n>17.470</td><td class=n>216.000đ</td></tr><tr><td>trannga833</td><td class=n>0</td><td class=n>0</td><td class=n>4.050</td><td class=n>209.200đ</td></tr><tr><td>07thang10_review</td><td class=n>0</td><td class=n>0</td><td class=n>2.700</td><td class=n>179.200đ</td></tr><tr><td>myduyenmebesoc</td><td class=n>0</td><td class=n>0</td><td class=n>6.750</td><td class=n>149.000đ</td></tr></table></div>
 <div class=panel><div class=funnel>
-<div class=frow><span>Creator onboard</span><b>47</b></div>
-<div class="frow drop"><span>Creator lên LIVE</span><b>7</b></div>
-<div class="frow drop"><span>Đăng Video</span><b>0</b></div>
-<div class="frow drop"><span>Ra đơn / GMV</span><b>0</b></div>
+<div class=frow><span>Creator onboard</span><b>462</b></div>
+<div class="frow drop"><span>Creator lên LIVE</span><b>14</b></div>
+<div class="frow drop"><span>Ra đơn / GMV</span><b>32</b></div>
 </div></div></div>
-<script>new Chart(document.getElementById('ch'),{type:'line',data:{labels:["10/07", "11/07", "12/07", "13/07", "14/07", "15/07", "16/07", "17/07", "18/07", "19/07", "20/07", "21/07", "22/07", "23/07", "24/07", "25/07", "26/07", "27/07", "28/07", "29/07", "30/07", "31/07"],datasets:[
+<div class=foot>Nguồn: TikTok Affiliate Partner export (CustomReport_Creator_Shop 2026-07-01_2026-07-15.xlsx) + Daily_Tracking. Ngày có dấu ● = có dữ liệu chi tiết theo ngày.</div>
+<script>
+const DAILY={};
+const TRACK=[{"iso": "2026-07-01", "d": "01/07", "plan": null, "act": null}, {"iso": "2026-07-02", "d": "02/07", "plan": null, "act": null}, {"iso": "2026-07-03", "d": "03/07", "plan": null, "act": null}, {"iso": "2026-07-04", "d": "04/07", "plan": null, "act": null}, {"iso": "2026-07-05", "d": "05/07", "plan": null, "act": null}, {"iso": "2026-07-06", "d": "06/07", "plan": null, "act": null}, {"iso": "2026-07-07", "d": "07/07", "plan": null, "act": null}, {"iso": "2026-07-08", "d": "08/07", "plan": null, "act": null}, {"iso": "2026-07-09", "d": "09/07", "plan": null, "act": null}, {"iso": "2026-07-10", "d": "10/07", "plan": 3076461, "act": null}, {"iso": "2026-07-11", "d": "11/07", "plan": 3076461, "act": null}, {"iso": "2026-07-12", "d": "12/07", "plan": 3076461, "act": null}, {"iso": "2026-07-13", "d": "13/07", "plan": 3076461, "act": null}, {"iso": "2026-07-14", "d": "14/07", "plan": 3461018, "act": null}, {"iso": "2026-07-15", "d": "15/07", "plan": 3461018, "act": null}, {"iso": "2026-07-16", "d": "16/07", "plan": 3076461, "act": null}, {"iso": "2026-07-17", "d": "17/07", "plan": 3076461, "act": null}, {"iso": "2026-07-18", "d": "18/07", "plan": 3076461, "act": null}, {"iso": "2026-07-19", "d": "19/07", "plan": 3076461, "act": null}, {"iso": "2026-07-20", "d": "20/07", "plan": 3076461, "act": null}, {"iso": "2026-07-21", "d": "21/07", "plan": 3076461, "act": null}, {"iso": "2026-07-22", "d": "22/07", "plan": 3076461, "act": null}, {"iso": "2026-07-23", "d": "23/07", "plan": 3076461, "act": null}, {"iso": "2026-07-24", "d": "24/07", "plan": 3461018, "act": null}, {"iso": "2026-07-25", "d": "25/07", "plan": 3461018, "act": null}, {"iso": "2026-07-26", "d": "26/07", "plan": 3076461, "act": null}, {"iso": "2026-07-27", "d": "27/07", "plan": 3076461, "act": null}, {"iso": "2026-07-28", "d": "28/07", "plan": 3076461, "act": null}, {"iso": "2026-07-29", "d": "29/07", "plan": 3076461, "act": null}, {"iso": "2026-07-30", "d": "30/07", "plan": 3076461, "act": null}, {"iso": "2026-07-31", "d": "31/07", "plan": null, "act": null}];
+const money=n=>n==null?'—':n.toLocaleString('vi-VN')+'đ';
+const fmt=n=>n==null?'—':n.toLocaleString('vi-VN');
+const sel=document.getElementById('daysel'),panel=document.getElementById('daypanel');
+TRACK.forEach((t,i)=>{
+  const o=document.createElement('option');o.value=i;
+  o.textContent=t.d+((DAILY[t.iso]||t.act!=null)?' ●':'');sel.appendChild(o);
+});
+sel.onchange=()=>{if(sel.value!=='')show(TRACK[sel.value]);};
+function show(t){
+  const d=DAILY[t.iso];let h='<h3 style="margin:6px 0">Ngày '+t.d+'</h3>';
+  h+='<div class=dstat>';
+  h+=card('Plan GMV',money(t.plan));
+  h+=card('Actual GMV',money(t.act!=null?t.act:(d?d.tot.gmv:null)));
+  if(d){
+    h+=card('GMV LIVE',money(d.tot.gmv_live||0));
+    h+=card('GMV video',money(d.tot.gmv_video||0));
+    h+=card('Đơn hàng',fmt(d.tot.ord||0));
+    h+=card('Buổi LIVE',fmt(d.tot.live||0));
+    h+=card('Lượt xem LIVE',fmt(d.tot.view||0));
+    h+=card('SP thêm trưng bày',fmt(d.tot.add||0));
+  }
+  h+='</div>';
+  if(d&&d.top.length){
+    h+='<table style="margin-top:12px"><tr><th>Top creator</th><th class=n>Live</th><th class=n>View</th><th class=n>GMV</th></tr>';
+    d.top.forEach(c=>h+='<tr><td>'+c.name+'</td><td class=n>'+(c.live||0)+'</td><td class=n>'+fmt(c.view||0)+'</td><td class=n>'+money(c.gmv||0)+'</td></tr>');
+    h+='</table>';
+  }
+  if(!d)h+='<div class=note>Chưa có export riêng cho ngày này — export report TikTok đúng 1 ngày ('+t.iso+' → '+t.iso+') và thả vào TikTok_Exports/ để xem chi tiết (đơn, LIVE, view, top creator).</div>';
+  panel.innerHTML=h;
+}
+function card(k,v){return '<div class=card><div class=k>'+k+'</div><div class=v>'+v+'</div></div>'}
+new Chart(document.getElementById('ch'),{type:'line',data:{labels:["10/07", "11/07", "12/07", "13/07", "14/07", "15/07", "16/07", "17/07", "18/07", "19/07", "20/07", "21/07", "22/07", "23/07", "24/07", "25/07", "26/07", "27/07", "28/07", "29/07", "30/07", "31/07"],datasets:[
 {label:'Plan (lũy kế)',data:[3076461, 6152922, 9229382, 12305843, 15766862, 19227880, 22304341, 25380802, 28457263, 31533724, 34610184, 37686645, 40763106, 43839567, 47300585, 50761604, 53838065, 56914525, 59990986, 63067447, 66143908, 69220369],borderColor:'#9CA3AF',borderDash:[6,4],tension:.2,pointRadius:0},
 {label:'Actual (lũy kế)',data:[null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],borderColor:'#1E7145',backgroundColor:'rgba(30,113,69,.08)',fill:true,tension:.2,pointRadius:2,spanGaps:false}
 ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}},scales:{y:{ticks:{callback:v=>(v/1e6)+'M'}}}}});</script>
