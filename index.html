@@ -24,7 +24,7 @@ th{background:var(--g);color:#fff}td.n{text-align:right;font-variant-numeric:tab
 .note{color:var(--muted);font-size:13px;background:var(--lg);border-radius:8px;padding:10px 12px;margin-top:10px}
 @media(max-width:760px){.cards{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.dstat{grid-template-columns:repeat(2,1fr)}}</style></head><body><div class=wrap>
 <header><h1>Sài Gòn Paper × eCentric — Brand Dashboard</h1>
-<div class=sub>Chiến dịch SGP x eCentric 2026 · Dữ liệu chiến dịch 2026-07-01 → 2026-07-15 · Cập nhật 17/07/2026 11:41</div></header>
+<div class=sub>Chiến dịch SGP x eCentric 2026 · Dữ liệu chiến dịch 2026-07-01 → 2026-07-15 · Cập nhật 17/07/2026 12:44</div></header>
 <h2>Chỉ số chính</h2><div class=cards><div class="card"><div class="k">GMV thực tế (tháng)</div><div class="v bad">6.422.969đ</div><small>mục tiêu 69.220.370đ · nguồn: export 2026-07-01 → 2026-07-15</small></div><div class="card"><div class="k">% đạt target</div><div class="v bad">9.3%</div><small></small></div><div class="card"><div class="k">Run-rate cần / ngày</div><div class="v ">4.186.493đ</div><small>15 ngày còn lại</small></div><div class="card"><div class="k">Đơn hàng</div><div class="v ok">32</div><small>toàn chiến dịch</small></div><div class="card"><div class="k">Creator onboard</div><div class="v ok">462</div><small>đã gắn sản phẩm</small></div><div class="card"><div class="k">Creator đã LIVE</div><div class="v warn">14</div><small>/462 onboard</small></div><div class="card"><div class="k">Buổi LIVE</div><div class="v ">309</div><small></small></div><div class="card"><div class="k">Lượt xem LIVE</div><div class="v ">486.911</div><small>GMV LIVE 436.806đ</small></div></div>
 <h2>Data theo ngày</h2><div class=panel>
 <select id=daysel class=daysel><option value="">— Chọn ngày —</option></select>
@@ -69,7 +69,8 @@ function show(t){
     d.top.forEach(c=>h+='<tr><td>'+c.name+'</td><td class=n>'+(c.live||0)+'</td><td class=n>'+fmt(c.view||0)+'</td><td class=n>'+money(c.gmv||0)+'</td></tr>');
     h+='</table>';
   }
-  if(!d)h+='<div class=note>Chưa có export riêng cho ngày này — export report TikTok đúng 1 ngày ('+t.iso+' → '+t.iso+') và thả vào TikTok_Exports/ để xem chi tiết (đơn, LIVE, view, top creator).</div>';
+  if(d&&d.derived)h+='<div class=note>Số liệu suy ra từ chênh lệch export lũy kế 2 ngày liên tiếp.</div>';
+  if(!d)h+='<div class=note>Chưa có data ngày này. Mỗi ngày chỉ cần export 1 file lũy kế (01/07 → hôm nay) thả vào TikTok_Exports/ — hệ thống tự tính Actual của ngày bằng chênh lệch so với hôm trước. Hoặc export đúng 1 ngày ('+t.iso+' → '+t.iso+') để xem cả top creator.</div>';
   panel.innerHTML=h;
 }
 function card(k,v){return '<div class=card><div class=k>'+k+'</div><div class=v>'+v+'</div></div>'}
